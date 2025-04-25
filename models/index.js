@@ -1,4 +1,6 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, Model, DataTypes } = require("sequelize");
+const { ClientUser } = require("./clientUser");
+const { AdminUser } = require("./adminUser");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE, // Ej: hack_academy_db
@@ -11,13 +13,15 @@ const sequelize = new Sequelize(
   },
 );
 
+ClientUser.initModel(sequelize);
+AdminUser.initModel(sequelize);
 // Requerir todos los modelos:
-const User = require("./User");
+/*const User = require("./User");
 const Article = require("./Article");
 
 // Inicializar todos los modelos:
 User.initModel(sequelize);
-Article.initModel(sequelize);
+Article.initModel(sequelize);*/
 
 /*
  * Luego de definir los modelos, se pueden establecer relaciones entre los
@@ -27,8 +31,4 @@ Article.initModel(sequelize);
  * aquí abajo.
  */
 
-module.exports = {
-  sequelize,
-  User,
-  Article,
-};
+module.exports = { sequelize, ClientUser, Model, DataTypes };
