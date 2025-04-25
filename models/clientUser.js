@@ -1,27 +1,37 @@
 const { Model, DataTypes } = require("sequelize");
-const { DataTypes } = require("./index");
 
 class ClientUser extends Model {
   static initModel(sequelize) {
     ClientUser.init(
       {
-        name: DataTypes.STRING,
+        name: {
+          type: DataTypes.STRING,
+        },
+        lastname: {
+          type: DataTypes.STRING,
+        },
+        email: {
+          type: DataTypes.STRING,
+        },
+        address: {
+          type: DataTypes.STRING,
+        },
 
-        lastname: DataTypes.STRING,
+        phone: {
+          type: DataTypes.STRING,
+        },
 
-        email: DataTypes.STRING,
+        order: {
+          type: DataTypes.STRING,
+        },
 
-        adress: DataTypes.STRING,
-
-        phone: DataTypes.STRING,
-
-        order: DataTypes.STRING,
-
-        password: DataTypes.STRING,
+        password: {
+          type: DataTypes.STRING,
+        },
       },
       {
         sequelize,
-        modelName: "clientUser", // Nombre del modelo en singular y en minúscula.
+        modelName: "clientuser", // Nombre del modelo en singular y en minúscula.
       },
     );
 

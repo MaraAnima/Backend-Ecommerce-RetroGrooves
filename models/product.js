@@ -1,32 +1,32 @@
 const { Model, DataTypes } = require("sequelize");
 
-class AdminUser extends Model {
+class Product extends Model {
   static initModel(sequelize) {
-    AdminUser.init(
+    Product.init(
       {
         name: {
           type: DataTypes.STRING,
         },
-        lastname: {
+        description: {
           type: DataTypes.STRING,
         },
-        email: {
+        photo: {
           type: DataTypes.STRING,
         },
-        address: {
+        stock: {
           type: DataTypes.STRING,
         },
-        permission: {
-          type: DataTypes.STRING,
+        highlights: {
+          type: DataTypes.BOOLEAN,
         },
       },
       {
         sequelize,
-        modelName: "adminUser", // Nombre del modelo en singular y en minúscula.
+        modelName: "product", // Nombre del modelo en singular y en minúscula.
       },
     );
-    return AdminUser;
+    return Product;
   }
 }
 
-module.exports = { AdminUser };
+module.exports = { Product };

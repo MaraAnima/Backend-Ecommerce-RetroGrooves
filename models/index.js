@@ -1,6 +1,9 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const { ClientUser } = require("./clientUser");
 const { AdminUser } = require("./adminUser");
+const { Order } = require("./order");
+const { Product } = require("./product");
+const { Category } = require("./category");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE, // Ej: hack_academy_db
@@ -13,16 +16,16 @@ const sequelize = new Sequelize(
   },
 );
 
-ClientUser.initModel(sequelize);
-AdminUser.initModel(sequelize);
 // Requerir todos los modelos:
 /*const User = require("./User");
-const Article = require("./Article");
+const Article = require("./Article");*/
 
 // Inicializar todos los modelos:
-User.initModel(sequelize);
-Article.initModel(sequelize);*/
-
+ClientUser.initModel(sequelize);
+AdminUser.initModel(sequelize);
+Order.initModel(sequelize);
+Product.initModel(sequelize);
+Category.initModel(sequelize);
 /*
  * Luego de definir los modelos, se pueden establecer relaciones entre los
  * mismos (usando métodos como belongsTo, hasMany y belongsToMany)...
@@ -30,5 +33,10 @@ Article.initModel(sequelize);*/
  * Por ejemplo, si un User está relacionado con un Article, establecerlo
  * aquí abajo.
  */
+ClientUser.hasMany(Order);
+Order.belongsTo(ClientUser);
 
-module.exports = { sequelize, ClientUser, Model, DataTypes };
+Category.hasMany(Product);
+Product.belongsTo(Category);
+
+module.exports = { sequelize, ClientUser, Model, DataTypes, Order, Product, Category };
