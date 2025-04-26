@@ -16,15 +16,9 @@ class ClientUser extends Model {
         address: {
           type: DataTypes.STRING,
         },
-
         phone: {
           type: DataTypes.STRING,
         },
-
-        order: {
-          type: DataTypes.STRING,
-        },
-
         password: {
           type: DataTypes.STRING,
         },
