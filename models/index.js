@@ -6,12 +6,12 @@ const { Product } = require("./product");
 const { Category } = require("./category");
 
 const sequelize = new Sequelize(
-  process.env.DB_DATABASE, // Ej: hack_academy_db
-  process.env.DB_USERNAME, // Ej: root
-  process.env.DB_PASSWORD, // Ej: root
+  "proyect-ecommerce", // Ej: hack_academy_db
+  "root", // Ej: root
+  "root", // Ej: root
   {
-    host: process.env.DB_HOST, // Ej: 127.0.0.1
-    dialect: process.env.DB_CONNECTION, // Ej: mysql
+    host: "127.0.0.1", // Ej: 127.0.0.1
+    dialect: "mysql", // Ej: mysql
     logging: false, // Para que no aparezcan mensajes en consola.
   },
 );
@@ -39,4 +39,4 @@ Order.belongsTo(ClientUser);
 Category.hasMany(Product);
 Product.belongsTo(Category);
 
-module.exports = { sequelize, ClientUser, Model, DataTypes, Order, Product, Category };
+module.exports = { sequelize, ClientUser, Model, DataTypes, Order, Product, Category, AdminUser };
