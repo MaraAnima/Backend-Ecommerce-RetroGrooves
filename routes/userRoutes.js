@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController");
+const userClientController = require("../controllers/userClientController");
 
 /*
  * API endpoints relacionados a los usuarios.
@@ -9,10 +9,10 @@ const userController = require("../controllers/userController");
  * tal como se definió en el archivo `routes/index.js`.
  */
 
-router.get("/", userController.index);
-router.post("/", userController.store);
-router.get("/:id", userController.show);
-router.patch("/:id", userController.update);
-router.delete("/:id", userController.destroy);
+router.get("/", userClientController.index);
+router.post("/", userClientController.store);
+router.get("/:id", userClientController.show);
+router.patch("/:id", userClientController.update);
+router.delete("/:id", userClientController.destroy);
 
 module.exports = router;

@@ -1,17 +1,17 @@
-const { Sequelize, Model, DataTypes } = require("sequelize");
-const { ClientUser } = require("./clientUser");
-const { AdminUser } = require("./adminUser");
-const { Order } = require("./order");
-const { Product } = require("./product");
-const { Category } = require("./category");
+const { Sequelize } = require("sequelize");
+const ClientUser = require("./clientUser");
+const AdminUser = require("./adminUser");
+const Order = require("./order");
+const Product = require("./product");
+const Category = require("./category");
 
-const sequelize = new Sequelize(
-  "proyect-ecommerce", // Ej: hack_academy_db
-  "root", // Ej: root
-  "root", // Ej: root
+const conection = new Sequelize(
+  process.env.DB_DATABASE, // Ej: hack_academy_db
+  process.env.DB_USERNAME, // Ej: root
+  process.env.DB_PASSWORD, // Ej: root
   {
-    host: "127.0.0.1", // Ej: 127.0.0.1
-    dialect: "mysql", // Ej: mysql
+    host: process.env.DB_HOST, // Ej: 127.0.0.1
+    dialect: process.env.DB_CONNECTION, // Ej: mysql
     logging: false, // Para que no aparezcan mensajes en consola.
   },
 );
@@ -21,11 +21,11 @@ const sequelize = new Sequelize(
 const Article = require("./Article");*/
 
 // Inicializar todos los modelos:
-ClientUser.initModel(sequelize);
-AdminUser.initModel(sequelize);
-Order.initModel(sequelize);
-Product.initModel(sequelize);
-Category.initModel(sequelize);
+ClientUser.initModel(conection);
+AdminUser.initModel(conection);
+Order.initModel(conection);
+Product.initModel(conection);
+Category.initModel(conection);
 /*
  * Luego de definir los modelos, se pueden establecer relaciones entre los
  * mismos (usando métodos como belongsTo, hasMany y belongsToMany)...
@@ -39,4 +39,4 @@ Order.belongsTo(ClientUser);
 Category.hasMany(Product);
 Product.belongsTo(Category);
 
-module.exports = { sequelize, ClientUser, Model, DataTypes, Order, Product, Category, AdminUser };
+module.exports = { conection, ClientUser, Order, Product, Category, AdminUser };

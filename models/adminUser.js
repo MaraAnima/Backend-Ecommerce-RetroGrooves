@@ -29,4 +29,4 @@ class AdminUser extends Model {
   }
 }
 
-module.exports = { AdminUser };
+module.exports = AdminUser;

@@ -12,10 +12,31 @@
  */
 
 // Display a listing of the resource.
-async function index(req, res) {}
+const { Product } = require("../models/index");
 
-// Display the specified resource.
-async function show(req, res) {}
+async function index(req, res) {
+  try {
+    const result = await Product.findAll();
+    return res.json(result);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
+
+/* Display the specified resource.
+async function show(req, res) {
+  try {
+    const productByid = await Product.findByPk(req.params.id);
+    if (productByid) {
+      res.json(productByid);
+    } else {
+      res.status(404).json({ error: "No se encontró el producto" });
+    }
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}*/
 
 // Store a newly created resource in storage.
 async function store(req, res) {}

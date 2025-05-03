@@ -22,11 +22,11 @@ class Product extends Model {
       },
       {
         sequelize,
-        modelName: "product", // Nombre del modelo en singular y en minúscula.
+        modelName: "product", // Nombre del modelo en singular y en minúscula en la base de datos
       },
     );
     return Product;
   }
 }
 
-module.exports = { Product };
+module.exports = Product;

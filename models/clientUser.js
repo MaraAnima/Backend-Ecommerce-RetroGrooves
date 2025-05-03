@@ -33,4 +33,4 @@ class ClientUser extends Model {
   }
 }
 
-module.exports = { ClientUser };
+module.exports = ClientUser;
