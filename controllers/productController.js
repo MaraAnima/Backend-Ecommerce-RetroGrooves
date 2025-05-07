@@ -24,7 +24,6 @@ async function index(req, res) {
   }
 }
 
-/* Display the specified resource.
 async function show(req, res) {
   try {
     const productByid = await Product.findByPk(req.params.id);
@@ -36,16 +35,47 @@ async function show(req, res) {
   } catch (error) {
     return res.status(500).json({ error: "Ha ocurrido un error" });
   }
-}*/
+}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const { name, description, photo, stock, highlight } = req.body;
+  if (!name || !description || !photo || !stock || !highlight) {
+    return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
+  }
+
+  const newProduct = await Product.create({ name, description, photo, stock, highlight });
+  return res.json(newProduct);
+}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  try {
+    const productUpdate = await Product.findByPk(req.params.id);
+
+    await productUpdate.update({
+      name: req.body.name,
+      description: req.body.description,
+      photo: req.body.photo,
+      stock: req.body.stock,
+      highlight: req.body.highlight,
+    });
+
+    res.json(productUpdate);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  try {
+    await Product.destroy({ where: { id: req.params.id } });
+    res.send("Se ha eliminado exitosamente");
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
 
 // Otros handlers...
 // ...

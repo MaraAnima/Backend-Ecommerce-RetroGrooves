@@ -12,10 +12,30 @@
  */
 
 // Display a listing of the resource.
-async function index(req, res) {}
+const { Category } = require("../models/index");
+
+async function index(req, res) {
+  try {
+    const resultCategory = await Category.findAll();
+    return res.json(resultCategory);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  try {
+    const categoryByid = await Category.findByPk(req.params.id);
+    if (categoryByid) {
+      res.json(categoryByid);
+    } else {
+      res.status(404).json({ error: "No se encontró la categoria" });
+    }
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {}

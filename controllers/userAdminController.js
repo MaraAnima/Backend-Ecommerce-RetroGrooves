@@ -7,7 +7,15 @@ async function index(req, res) {}
 async function show(req, res) {}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const { firstname, lastname, email, password } = req.body;
+  if (!firstname || !lastname || !email || !password) {
+    return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
+  }
+  const hashedPassword = await bcrypt.hash(password, 8);
+  const newAdmin = await Admin.create({ firstname, lastname, email, password: hashedPassword });
+  return res.json(newAdmin);
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
