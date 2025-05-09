@@ -4,10 +4,11 @@
  */
 
 const userRoutes = require("./userRoutes");
-const articleRoutes = require("./articleRoutes");
+const articleRoutes = require("./userClientRoutes");
 const productRoutes = require("./productRoutes");
 const categoryRoutes = require("./categoryRoutes");
-
+const adminRoutes = require("./userAdminRoutes");
+const clientRoutes = require("./userClientRoutes");
 module.exports = (app) => {
   /*
    * Al construir una API REST, la convención es que las rutas relativas a
@@ -23,4 +24,6 @@ module.exports = (app) => {
   app.use("/articles", articleRoutes);
   app.use("/products", productRoutes);
   app.use("/category", categoryRoutes);
+  app.use("/admin", adminRoutes);
+  app.use("/client", clientRoutes);
 };

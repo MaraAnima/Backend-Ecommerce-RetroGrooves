@@ -38,17 +38,20 @@ async function show(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const name = req.body.name;
+  const newCategory = await Category.create({ name });
+  return res.json(newCategory);
+}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  const categoryUpdate = await Category.findByPk(req.params.id);
 
-// Remove the specified resource from storage.
-async function destroy(req, res) {}
-
-// Otros handlers...
 // ...
 
+  res.send("se ha borrado con éxito");
+}
 module.exports = {
   index,
   show,

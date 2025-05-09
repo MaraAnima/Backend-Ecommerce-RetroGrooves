@@ -19,6 +19,9 @@ class AdminUser extends Model {
         permission: {
           type: DataTypes.STRING,
         },
+        password: {
+          type: DataTypes.STRING,
+        },
       },
       {
         sequelize,
