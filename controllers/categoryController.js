@@ -48,10 +48,18 @@ async function store(req, res) {
 async function update(req, res) {
   const categoryUpdate = await Category.findByPk(req.params.id);
 
-// ...
-
   res.send("se ha borrado con éxito");
 }
+
+async function destroy(req, res) {
+  try {
+    await Category.destroy({ where: { id: req.params.id } });
+    res.send("Se ha eliminado exitosamente");
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
+}
+
 module.exports = {
   index,
   show,

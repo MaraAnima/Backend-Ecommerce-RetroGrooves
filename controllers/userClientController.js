@@ -17,22 +17,21 @@ async function show(req, res) {
 }
 
 // Store a newly created resource in storage.
-/*async function store(req, res) {
-  const newClient = { name, lastname, email, password, permission, address } = req.body;
-  if (!name || !lastname || !email || !password || !permission || !address) {
+async function store(req, res) {
+  const { name, lastname, email, password, address } = req.body;
+  if (!name || !lastname || !email || !password || !address) {
     return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
   }
   const hashedPassword = await bcrypt.hash(password, 8);
-  const newClient = await AdminUser.create({
+  const newClient = await ClientUser.create({
     name,
     lastname,
     email,
-    permission,
     address,
     password: hashedPassword,
   });
   return res.json(newClient);
-}*/
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}

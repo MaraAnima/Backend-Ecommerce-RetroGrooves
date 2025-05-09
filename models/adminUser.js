@@ -16,9 +16,6 @@ class AdminUser extends Model {
         address: {
           type: DataTypes.STRING,
         },
-        permission: {
-          type: DataTypes.STRING,
-        },
         password: {
           type: DataTypes.STRING,
         },

@@ -15,8 +15,8 @@ async function show(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const { name, lastname, email, password, permission, address } = req.body;
-  if (!name || !lastname || !email || !password || !permission || !address) {
+  const { name, lastname, email, password, address } = req.body;
+  if (!name || !lastname || !email || !password || !address) {
     return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
   }
   const hashedPassword = await bcrypt.hash(password, 8);
@@ -24,7 +24,6 @@ async function store(req, res) {
     name,
     lastname,
     email,
-    permission,
     address,
     password: hashedPassword,
   });
@@ -38,7 +37,6 @@ async function update(req, res) {
     name: req.body.name,
     lastname: req.body.lastname,
     email: req.body.email,
-    permission: req.body.permission,
     password: req.body.password,
     address: req.body.address,
   });
