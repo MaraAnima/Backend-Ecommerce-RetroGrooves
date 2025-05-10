@@ -1,6 +1,7 @@
 const express = require("express");
 const clientRoutes = express.Router();
 const userClientController = require("../controllers/userClientController");
+const { expressjwt: checkJwt } = require("express-jwt");
 
 /*
  * API endpoints relacionados a los artículos.
