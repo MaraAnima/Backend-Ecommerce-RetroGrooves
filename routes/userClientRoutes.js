@@ -10,10 +10,26 @@ const { expressjwt: checkJwt } = require("express-jwt");
  * tal como se definió en el archivo `routes/index.js`.
  */
 
-clientRoutes.get("/", userClientController.index);
+clientRoutes.get(
+  "/",
+  checkJwt({ secret: "UnStringSecreto", algorithms: ["HS256"] }),
+  userClientController.index,
+);
 clientRoutes.post("/", userClientController.store);
-clientRoutes.get("/:id", userClientController.show);
-clientRoutes.patch("/:id", userClientController.update);
-clientRoutes.delete("/:id", userClientController.destroy);
+clientRoutes.get(
+  "/:id",
+  checkJwt({ secret: "UnStringSecreto", algorithms: ["HS256"] }),
+  userClientController.show,
+);
+clientRoutes.patch(
+  "/:id",
+  checkJwt({ secret: "UnStringSecreto", algorithms: ["HS256"] }),
+  userClientController.update,
+);
+clientRoutes.delete(
+  "/:id",
+  checkJwt({ secret: "UnStringSecreto", algorithms: ["HS256"] }),
+  userClientController.destroy,
+);
 
 module.exports = clientRoutes;

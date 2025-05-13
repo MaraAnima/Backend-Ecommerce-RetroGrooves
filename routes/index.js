@@ -3,8 +3,6 @@
  * Una alternativa podría ser organizar las rutas por recurso (o entidad):
  */
 
-const userRoutes = require("./userRoutes");
-const articleRoutes = require("./userClientRoutes");
 const productRoutes = require("./productRoutes");
 const categoryRoutes = require("./categoryRoutes");
 const adminRoutes = require("./userAdminRoutes");
@@ -21,8 +19,7 @@ module.exports = (app) => {
    * (en inglés y en plural). Del mismo modo, las rutas relativas a los artículos
    * se deberían agrupar bajo la URL `/articles` (en inglés y en plural).
    */
-  app.use("/users", userRoutes);
-  app.use("/articles", articleRoutes);
+
   app.use("/products", productRoutes);
   app.use("/category", categoryRoutes);
   app.use("/admin", adminRoutes);
