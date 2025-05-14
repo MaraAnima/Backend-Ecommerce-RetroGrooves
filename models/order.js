@@ -4,9 +4,6 @@ class Order extends Model {
   static initModel(sequelize) {
     Order.init(
       {
-        buyer: {
-          type: DataTypes.STRING,
-        },
         orderRegistration: {
           type: DataTypes.JSON,
         },

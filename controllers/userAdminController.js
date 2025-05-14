@@ -3,50 +3,70 @@ const bcrypt = require("bcryptjs");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const result = await AdminUser.findAll();
-  res.json(result);
+  try {
+    const result = await AdminUser.findAll();
+    res.json(result);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 // Display the specified resource.
 async function show(req, res) {
-  const adminById = await AdminUser.findByPk(req.params.id);
-  return res.json(adminById);
+  try {
+    const adminById = await AdminUser.findByPk(req.params.id);
+    return res.json(adminById);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const { name, lastname, email, password, address } = req.body;
-  if (!name || !lastname || !email || !password || !address) {
-    return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
+  try {
+    const { name, lastname, email, password, address } = req.body;
+    if (!name || !lastname || !email || !password || !address) {
+      return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 8);
+    const newAdmin = await AdminUser.create({
+      name,
+      lastname,
+      email,
+      address,
+      password: hashedPassword,
+    });
+    return res.json(newAdmin);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
   }
-  const hashedPassword = await bcrypt.hash(password, 8);
-  const newAdmin = await AdminUser.create({
-    name,
-    lastname,
-    email,
-    address,
-    password: hashedPassword,
-  });
-  return res.json(newAdmin);
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const updateAdmin = await AdminUser.findByPk(req.params.id);
-  await updateAdmin.update({
-    name: req.body.name,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    password: req.body.password,
-    address: req.body.address,
-  });
-  res.json(updateAdmin);
+  try {
+    const updateAdmin = await AdminUser.findByPk(req.params.id);
+    await updateAdmin.update({
+      name: req.body.name,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: req.body.password,
+      address: req.body.address,
+    });
+    res.json(updateAdmin);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  await AdminUser.destroy({ where: { id: req.params.id } });
-  res.send("Se eliminó exitosamente");
+  try {
+    await AdminUser.destroy({ where: { id: req.params.id } });
+    res.send("Se eliminó exitosamente");
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 module.exports = {

@@ -8,6 +8,7 @@ const categoryRoutes = require("./categoryRoutes");
 const adminRoutes = require("./userAdminRoutes");
 const clientRoutes = require("./userClientRoutes");
 const authRoutes = require("./authRoutes");
+const orderRoutes = require("./orderRoutes");
 module.exports = (app) => {
   /*
    * Al construir una API REST, la convención es que las rutas relativas a
@@ -21,6 +22,7 @@ module.exports = (app) => {
    */
 
   app.use("/products", productRoutes);
+  app.use("/orders", orderRoutes);
   app.use("/category", categoryRoutes);
   app.use("/admin", adminRoutes);
   app.use("/client", clientRoutes);

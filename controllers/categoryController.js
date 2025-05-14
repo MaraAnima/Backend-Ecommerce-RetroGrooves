@@ -39,16 +39,26 @@ async function show(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const name = req.body.name;
-  const newCategory = await Category.create({ name });
-  return res.json(newCategory);
+  try {
+    const name = req.body.name;
+    const newCategory = await Category.create({ name });
+    return res.json(newCategory);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const categoryUpdate = await Category.findByPk(req.params.id);
-
-  res.send("se ha borrado con éxito");
+  try {
+    const categoryUpdate = await Category.findByPk(req.params.id);
+    await categoryUpdate.update({
+      name: req.body.name,
+    });
+    res.json(categoryUpdate);
+  } catch (error) {
+    return res.status(500).json({ error: "Ha ocurrido un error" });
+  }
 }
 
 async function destroy(req, res) {
