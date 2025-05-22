@@ -43,10 +43,13 @@ async function store(req, res) {
     const { orderRegistration, orderState } = req.body;
     const idUser = req.auth.sub;
     console.log(idUser);
+    if (req.auth.rol === "Admin") {
+      return res.send("Yo diria que no");
+    }
     if (!orderRegistration || !orderState) {
       return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
     }
-    /*Hacer la funcion*/
+
     const newOrder = await Order.create({ clientuserId: idUser, orderRegistration, orderState });
     return res.json(newOrder);
   } catch (error) {
