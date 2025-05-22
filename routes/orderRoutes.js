@@ -5,7 +5,12 @@ const { expressjwt: checkJwt } = require("express-jwt");
 const isAdmin = require("../middleweres/isAdmin");
 
 orderRoutes.get("/", Order.index);
-orderRoutes.post("/", Order.store);
+orderRoutes.post(
+  "/",
+  checkJwt({ secret: "UnStringSecreto", algorithms: ["HS256"] }),
+
+  Order.store,
+);
 orderRoutes.get("/:id", Order.show);
 orderRoutes.patch(
   "/:id",

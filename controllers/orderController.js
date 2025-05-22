@@ -13,9 +13,6 @@
 
 // Display a listing of the resource.
 const { Order } = require("../models/index");
-const authController = require("../controllers/authController");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 
 async function index(req, res) {
   try {
@@ -49,10 +46,11 @@ async function store(req, res) {
     if (!orderRegistration || !orderState) {
       return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
     }
-
+    /*Hacer la funcion*/
     const newOrder = await Order.create({ clientuserId: idUser, orderRegistration, orderState });
     return res.json(newOrder);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ error: "Ha ocurrido un error" });
   }
 }
