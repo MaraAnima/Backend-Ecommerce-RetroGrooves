@@ -16,19 +16,8 @@
 
 const faker = require("@faker-js/faker").fakerES;
 const { Product } = require("../models");
-
+const products = require("./data/product.json");
 module.exports = async () => {
-  const products = [];
-
-  for (let i = 0; i < 100; i++) {
-    products.push({
-      name: faker.person.firstName(),
-      description: faker.commerce.productName(),
-      stock: Math.random(),
-      photo: faker.image.avatarGitHub(),
-    });
-  }
-
   await Product.bulkCreate(products);
   console.log("[Database] Se corrió el seeder de Users.");
 };

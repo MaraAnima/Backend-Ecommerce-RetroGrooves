@@ -18,13 +18,7 @@ const faker = require("@faker-js/faker").fakerES;
 const { Category } = require("../models");
 
 module.exports = async () => {
-  const category = [];
-
-  for (let i = 0; i < 100; i++) {
-    category.push({
-      name: faker.commerce.department(),
-    });
-  }
+  const category = [{ name: "Rock" }];
 
   await Category.bulkCreate(category);
   console.log("[Database] Se corrió el seeder de Users.");

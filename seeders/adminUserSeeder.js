@@ -18,18 +18,15 @@ const faker = require("@faker-js/faker").fakerES;
 const { AdminUser } = require("../models");
 
 module.exports = async () => {
-  const adminUsers = [];
-
-  for (let i = 0; i < 100; i++) {
-    adminUsers.push({
-      name: faker.person.firstName(),
-      lastname: faker.person.lastName(),
-      email: faker.internet.email(),
-      address: faker.location.streetAddress(),
-      password: faker.internet.password(),
-    });
-  }
-
+  const adminUsers = [
+    {
+      name: "Karina",
+      lastname: "Gomez",
+      email: "Gomez@gmail.com",
+      address: "Caju123",
+      password: "Hola123",
+    },
+  ];
   await AdminUser.bulkCreate(adminUsers);
   console.log("[Database] Se corrió el seeder de Users.");
 };
