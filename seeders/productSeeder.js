@@ -14,7 +14,6 @@
  * En este ejemplo se están insertando 100 usuarios con nombres ficticios.
  */
 
-const faker = require("@faker-js/faker").fakerES;
 const { Product } = require("../models");
 const products = require("./data/product.json");
 module.exports = async () => {
