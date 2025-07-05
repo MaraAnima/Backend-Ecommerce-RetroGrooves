@@ -14,7 +14,7 @@ const authController = {
           const tokens = jwt.sign({ sub: userClient.id, rol: "Client" }, "UnStringSecreto");
           return res.json({ tokens });
         } else {
-          res.send("Credenciales invalidas de Client ");
+          return res.send("Credenciales invalidas de Client ");
         }
       } else {
         const email = req.body.email;
@@ -26,12 +26,13 @@ const authController = {
             const tokenAdmin = jwt.sign({ sub: userAdmin.id, rol: "Admin" }, "UnStringSecreto");
             return res.json({ tokenAdmin });
           } else {
-            res.send("Credenciales invalidas de Admin");
+            return res.send("Credenciales invalidas de Admin");
           }
         }
       }
+      return res.json({ mensaje: "Credenciales Invalidas" });
     } catch (error) {
-      res.send("Error en Credenciales");
+      return res.send("Error en Credenciales");
     }
   },
 };

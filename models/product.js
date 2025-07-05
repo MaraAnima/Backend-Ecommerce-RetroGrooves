@@ -20,7 +20,7 @@ class Product extends Model {
           type: DataTypes.BOOLEAN,
         },
         price: {
-          type: DataTypes.STRING,
+          type: DataTypes.TINYINT,
         },
       },
       {
