@@ -40,17 +40,21 @@ async function show(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
-    const { orderRegistration, orderState } = req.body;
+    const { orderRegistration } = req.body;
     const idUser = req.auth.sub;
     console.log(idUser);
     if (req.auth.rol === "Admin") {
       return res.send("Yo diria que no");
     }
-    if (!orderRegistration || !orderState) {
+    if (!orderRegistration) {
       return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
     }
 
-    const newOrder = await Order.create({ clientuserId: idUser, orderRegistration, orderState });
+    const newOrder = await Order.create({
+      clientuserId: idUser,
+      orderRegistration,
+      orderState: "Pendiente",
+    });
     return res.json(newOrder);
   } catch (error) {
     console.log(error);
