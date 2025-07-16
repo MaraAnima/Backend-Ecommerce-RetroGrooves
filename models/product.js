@@ -20,7 +20,7 @@ class Product extends Model {
           type: DataTypes.BOOLEAN,
         },
         price: {
-          type: DataTypes.DECIMAL(10, 2),
+          type: DataTypes.FLOAT,
         },
       },
       {

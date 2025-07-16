@@ -48,6 +48,7 @@ async function store(req, res) {
     const newProduct = await Product.create({ name, description, photo, stock, price });
     return res.json(newProduct);
   } catch (error) {
+    console.error("Error real:", error.message, error); // <- asegurate de tener esta línea
     return res.status(500).json({ error: "Ha ocurrido un error" });
   }
 }
