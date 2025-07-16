@@ -40,12 +40,12 @@ async function show(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
-    const { name, description, photo, stock, highlight } = req.body;
-    if (!name || !description || !photo || !stock || !highlight) {
+    const { name, description, photo, stock, price } = req.body;
+    if (!name || !description || !photo || !stock || !price) {
       return res.json({ error: "Todas las propiedades son requeridas obligatoriamente" });
     }
 
-    const newProduct = await Product.create({ name, description, photo, stock, highlight });
+    const newProduct = await Product.create({ name, description, photo, stock, price });
     return res.json(newProduct);
   } catch (error) {
     return res.status(500).json({ error: "Ha ocurrido un error" });

@@ -14,13 +14,13 @@ class Product extends Model {
           type: DataTypes.STRING,
         },
         stock: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
         },
         highlights: {
           type: DataTypes.BOOLEAN,
         },
         price: {
-          type: DataTypes.TINYINT,
+          type: DataTypes.DECIMAL(10, 2),
         },
       },
       {

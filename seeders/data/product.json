@@ -4,7 +4,7 @@
     "name": "Witness",
     "description": "Katy Perry",
     "price": 25,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -12,7 +12,7 @@
     "name": "Lali Esposito",
     "description": "LALI",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -20,7 +20,7 @@
     "name": "Nevermind",
     "description": "Nirvana",
     "price": 60,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -28,7 +28,7 @@
     "name": "Black Sabath",
     "description": "Rock",
     "price": 29,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -36,7 +36,7 @@
     "name": "Pantera",
     "description": "Punch",
     "price": 90,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -44,7 +44,7 @@
     "name": "Megan The Stallion",
     "description": "MEGAN",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -52,7 +52,7 @@
     "name": "Oasis",
     "description": "bad bunny baby",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -60,7 +60,7 @@
     "name": "Oasis",
     "description": "bad bunny baby",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -68,7 +68,7 @@
     "name": "Oasis",
     "description": "bad bunny baby",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -76,7 +76,7 @@
     "name": "Oasis",
     "description": "bad bunny baby",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   },
   {
@@ -84,7 +84,7 @@
     "name": "Oasis",
     "description": "bad bunny baby",
     "price": 20,
-    "stock": "1",
+    "stock": 1,
     "hightlight": false
   }
 ]
