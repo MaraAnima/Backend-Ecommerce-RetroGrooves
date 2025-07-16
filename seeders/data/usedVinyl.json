@@ -1,0 +1,58 @@
+[
+  {
+    "photo": "https://m.media-amazon.com/images/I/81lXtCE1HXL._UF1000,1000_QL80_.jpg",
+    "name": "Queen: All the songs",
+    "description": "Queen",
+    "price": 65,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://upload.wikimedia.org/wikipedia/en/b/bd/Metallica_-_...And_Justice_for_All_cover.jpg",
+    "name": "And Justice for All",
+    "description": "Matellica",
+    "price": 65,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://upload.wikimedia.org/wikipedia/en/9/9b/R.E.M._-_Out_of_Time.jpg",
+    "name": "R.E.M",
+    "description": "Out of Time",
+    "price": 45,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://cdn-images.dzcdn.net/images/cover/195d3d2c1196b20711cfb6ad76e1c2ba/0x1900-000000-80-0-0.jpg",
+    "name": "Madonna",
+    "description": "Celebration",
+    "price": 35,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png",
+    "name": "Taylor Swift",
+    "description": "Taylor Swift Debut Album",
+    "price": 40,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://cdn-images.dzcdn.net/images/cover/d4e1532596d6889bea09908d54314dc2/0x1900-000000-80-0-0.jpg",
+    "name": "Alejandro Sanz",
+    "description": "Más",
+    "price": 22,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://cdn-images.dzcdn.net/images/cover/d4e1532596d6889bea09908d54314dc2/0x1900-000000-80-0-0.jpg",
+    "name": "Alejandro Sanz",
+    "description": "Más",
+    "price": 22,
+    "stock": 1,
+    "hightlight": false
+  }
+]

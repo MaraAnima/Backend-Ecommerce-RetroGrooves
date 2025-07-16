@@ -1,0 +1,58 @@
+[
+  {
+    "photo": "https://m.media-amazon.com/images/I/91tQ5SUoAcL._UF894,1000_QL80_.jpg",
+    "name": "Blue Notes",
+    "description": "The Magnificent Thad Jones",
+    "price": 26,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://upload.wikimedia.org/wikipedia/en/9/9a/..._Baby_One_More_Time_%28album%29.png",
+    "name": "Britney spears",
+    "description": "Baby One More Time ",
+    "price": 22,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbw7uL0EXIiUhnt2FJVv6Pld75OyarZsCsfg&s",
+    "name": "David Bowie",
+    "description": "Alladin Sane",
+    "price": 22,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://i.scdn.co/image/ab67616d0000b27301218411acc5a926ac771917",
+    "name": "Ruben Rada",
+    "description": "El album negro",
+    "price": 22,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://m.media-amazon.com/images/I/718lmBKw4IL._UF1000,1000_QL80_.jpg",
+    "name": "Scorpions",
+    "description": "Blackout",
+    "price": 12,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/99/The_Miseducation_of_Lauryn_Hill.png/250px-The_Miseducation_of_Lauryn_Hill.png",
+    "name": "Lauren Hill",
+    "description": "The Miseducation of Lauryn Hill",
+    "price": 44,
+    "stock": 1,
+    "hightlight": false
+  },
+  {
+    "photo": "https://cdn-images.dzcdn.net/images/cover/2de9f9db75478828f0baf710c7b2fdf2/0x1900-000000-80-0-0.jpg",
+    "name": "Aretha Franklin",
+    "description": "Aretha Now",
+    "price": 44,
+    "stock": 1,
+    "hightlight": false
+  }
+]
